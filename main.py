@@ -80,29 +80,42 @@ class OrderBook:
 if __name__ == '__main__':
     # create 6 orders
     order_1 = Order(
-        randrange(
-            1000, 3000), randrange(
-            10000, 50000), uuid.uuid4(), "buy")
+        randrange(1000, 3000),
+        randrange(10000, 50000,),
+        uuid.uuid4(),
+        "buy",
+    )
     order_2 = Order(
-        randrange(
-            1000, 3000), randrange(
-            10000, 50000), uuid.uuid4(), "buy")
+        randrange(1000, 3000),
+        randrange(10000, 50000),
+        uuid.uuid4(),
+        "buy",
+    )
     order_3 = Order(
-        randrange(
-            1000, 3000), randrange(
-            10000, 50000), uuid.uuid4(), "buy")
+        randrange(1000, 3000),
+        randrange(10000, 50000),
+        uuid.uuid4(),
+        "buy",
+    )
     order_4 = Order(
-        randrange(
-            1000, 3000), randrange(
-            10000, 50000), uuid.uuid4(), "buy")
+        randrange(1000, 3000),
+        randrange(10000, 50000),
+        uuid.uuid4(),
+        "buy",
+    )
     order_5 = Order(
-        randrange(
-            1000, 3000), randrange(
-            10000, 50000), uuid.uuid4(), "buy")
+        randrange(1000, 3000),
+        randrange(10000, 50000),
+        uuid.uuid4(),
+        "buy",
+    )
     order_6 = Order(
-        randrange(
-            1000, 3000), randrange(
-            10000, 50000), uuid.uuid4(), "buy")
+        randrange(1000, 3000),
+        randrange(10000, 50000),
+        uuid.uuid4(),
+        "buy",
+    )
+
     orders = []
 
     orders.extend([order_1, order_2, order_3, order_4, order_5, order_6])

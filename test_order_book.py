@@ -1,8 +1,8 @@
-import unittest
+import pytest
 import main
 
 
-class TestOrderBook(unittest.TestCase):
+class TestOrderBook():
     order_1 = main.Order(1, 10, "id-101", "buy")
     order_2 = main.Order(2, 11, "id-102", "buy")
     order_3 = main.Order(3, 12, "id-103", "buy")
@@ -22,7 +22,7 @@ class TestOrderBook(unittest.TestCase):
             prices.extend([i.price])
 
         expectedPriceOrder = [1, 2, 3, 4, 5, 6]
-        self.assertListEqual(prices, expectedPriceOrder)
+        assert prices == expectedPriceOrder
 
     def test_get_ordersByID(self):
         orderBook = main.OrderBook()
@@ -30,7 +30,7 @@ class TestOrderBook(unittest.TestCase):
 
         orderID = "id-101"
         order = orderBook.getOrderByID(orderID)
-        self.assertEqual(order.orderID, orderID)
+        assert order.orderID == orderID
 
     def test_removeOrderByID(self):
         orderBook = main.OrderBook()
@@ -39,15 +39,16 @@ class TestOrderBook(unittest.TestCase):
         totalOrdersBeforeRemoving = orderBook.countOrders()
         orderID = "id-102"
         order = orderBook.getOrderByID(orderID)
-        self.assertEqual(order.orderID, orderID)
+        assert order.orderID == orderID
 
         orderBook.removeOrderByID(orderID)
         orderAfterRemoving = orderBook.getOrderByID(orderID)
-        self.assertEqual(orderAfterRemoving, None)
+        expected = None
+        assert orderAfterRemoving == expected
         totalOrdersAfterRemoving = orderBook.countOrders()
 
-        self.assertEqual(int(totalOrdersBeforeRemoving), 6)
-        self.assertEqual(int(totalOrdersAfterRemoving), 5)
+        assert int(totalOrdersBeforeRemoving) == 6
+        assert int(totalOrdersAfterRemoving) == 5
 
     def test_addOrderToList(self):
         orderBook = main.OrderBook()
@@ -59,12 +60,12 @@ class TestOrderBook(unittest.TestCase):
         orderBook.addOrderToList(newOrder_7)
 
         orderAfterAdding = orderBook.getOrderByID(orderID)
-        self.assertEqual(orderAfterAdding, newOrder_7)
+        assert orderAfterAdding == newOrder_7
         totalOrdersAfterAdding = orderBook.countOrders()
 
-        self.assertEqual(int(totalOrdersBeforeAdding), 6)
-        self.assertEqual(int(totalOrdersAfterAdding), 7)
+        assert int(totalOrdersBeforeAdding) == 6
+        assert int(totalOrdersAfterAdding) == 7
 
 
 if __name__ == "__main__":
-    unittest.main()
+    pytest.main()
